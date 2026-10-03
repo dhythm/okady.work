@@ -258,6 +258,7 @@
 
   /* ---------- contact ---------- */
   const TO = 'yuta.okada.20@gmail.com';
+  const ENDPOINT = 'https://ssgform.com/s/HRaKotWeWwFx';
   const form = $('#contactForm'), ctStatus = $('#ctStatus'), send = $('#send');
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   function showStatus(kind, html) {
@@ -299,18 +300,13 @@
     send.disabled = true;
     showStatus('', '<span class="k">SENDING</span>送信しています…');
     try {
-      const res = await fetch('https://formsubmit.co/ajax/' + TO, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          _subject: `【okady.work】お問い合わせ：${name} 様`,
-          _template: 'table',
-          _replyto: email,
-          '氏名': name, 'メールアドレス': email, '所属先': org || '（未記入）', '要件': msg,
-        }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
+      const body = new FormData();
+      body.append('氏名', name);
+      body.append('メールアドレス', email);
+      body.append('所属先', org || '（未記入）');
+      body.append('要件', msg);
+      const res = await fetch(ENDPOINT, { method: 'POST', body });
+      if (!res.ok) throw new Error(res.status);
       form.reset();
       showStatus('ok', `<span class="k">200 OK</span>送信しました。${esc(name)} 様、お問い合わせありがとうございます。`);
     } catch (e) {
