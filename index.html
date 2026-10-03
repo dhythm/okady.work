@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>okady.work — 岡田雄太</title>
+<meta name="description" content="やってみる。話はそれからだ。 岡田雄太 / Yuta Okada">
+<meta name="theme-color" content="#0b0b0b">
+<meta property="og:title" content="okady.work — 岡田雄太">
+<meta property="og:description" content="やってみる。話はそれからだ。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://okady.work/">
+<link rel="canonical" href="https://okady.work/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-40 -40 337 371'%3E%3Crect x='-40' y='-40' width='337' height='371' rx='60' fill='%23D4FF1A'/%3E%3Cg fill='none' stroke='%230B0B0B' stroke-width='30'%3E%3Cpath d='M15 128A113.5 113.5 0 0 1 242 128'/%3E%3Cpath d='M15 128V256Q15 276 35 276H222Q242 276 242 256V128'/%3E%3Cpath d='M15 127H242M15 201H242M128.5 127V276'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,700;0,800;1,800&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+JP:wght@500;700;900&display=swap">
+<link rel="preload" as="image" href="assets/okada-cut.webp" fetchpriority="high">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mk" viewBox="0 0 257 291">
+    <g fill="none" stroke="currentColor" stroke-width="30">
+      <path pathLength="1" d="M15 128A113.5 113.5 0 0 1 242 128"/>
+      <path pathLength="1" d="M15 128V256Q15 276 35 276H222Q242 276 242 256V128"/>
+      <path pathLength="1" d="M15 127H242"/>
+      <path pathLength="1" d="M15 201H242"/>
+      <path pathLength="1" d="M128.5 127V276"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- BOOT -->
+<div id="boot" aria-hidden="true">
+  <svg class="boot-mark" viewBox="0 0 257 291">
+    <g fill="none" stroke="currentColor" stroke-width="30">
+      <path pathLength="1" d="M15 128A113.5 113.5 0 0 1 242 128"/>
+      <path pathLength="1" d="M15 128V256Q15 276 35 276H222Q242 276 242 256V128"/>
+      <path pathLength="1" d="M15 127H242"/>
+      <path pathLength="1" d="M15 201H242"/>
+      <path pathLength="1" d="M128.5 127V276"/>
+    </g>
+  </svg>
+  <div class="boot-log" id="bootLog"></div>
+  <div class="boot-num"><span id="bootNum">000</span></div>
+</div>
+
+<!-- HUD -->
+<header class="hud" id="hud">
+  <a class="hud-l" href="#hero" aria-label="okady.work トップへ">
+    <svg class="hud-mark"><use href="#mk"/></svg><span>OKADY.WORK</span>
+  </a>
+  <div class="hud-r" aria-hidden="true">
+    <span>TRY <b id="tryN">0001</b></span>
+    <span class="hud-err" id="errWrap">ERR <b id="errN">000</b></span>
+  </div>
+  <i class="hud-bar" id="hudBar"></i>
+</header>
+
+<div class="grain" aria-hidden="true"></div>
+
+<div class="app">
+<main>
+
+  <!-- 01 HERO -->
+  <section id="hero" class="hero" data-theme="lime">
+    <div class="hero-top">
+      <p class="kicker">AI-DRIVEN.<br>DEVELOPMENT.</p>
+      <img class="hero-logo" src="assets/logo.png" alt="okady" width="1302" height="352">
+    </div>
+
+    <div class="fig" id="fig">
+      <svg class="fig-mark" id="figMark" aria-hidden="true"><use href="#mk"/></svg>
+      <img class="fig-person" id="figPerson" src="assets/okada-cut.webp" alt="岡田雄太の肖像" width="1100" height="1664" fetchpriority="high">
+    </div>
+    <div class="hero-fade" aria-hidden="true"></div>
+
+    <div class="hero-copy" id="heroCopy">
+      <h1 class="h-block">
+        <span class="fit" data-sq=".8"><span class="fi" data-split>やってみる。</span></span>
+        <span class="fit" data-sq=".8"><span class="fi" data-split>話はそれからだ。</span></span>
+      </h1>
+      <p class="sign">
+        <span class="sign-jp">岡田雄太</span>
+        <span class="sign-en">YUTA OKADA</span>
+      </p>
+      <span class="cue" aria-hidden="true">SCROLL<i></i></span>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <div class="band" data-theme="ink" aria-hidden="true">
+    <div class="band-row band-a"><div class="band-track" id="bandA"></div></div>
+    <div class="band-row band-b"><div class="band-track" id="bandB"></div></div>
+  </div>
+
+  <!-- 02 ERROR -->
+  <section id="err" class="err" data-theme="ink">
+    <div class="err-stage" id="errStage">
+      <p class="err-warn"><span class="w1"><b>WARN</b> trial_and_error() is deprecated?</span><span class="w2"><b>ERR!</b> unexpected opinion detected.</span></p>
+
+      <h2 class="err-copy" aria-label="試行錯誤が、時代錯誤だって？">
+        <span class="fit l1" data-sq=".8"><span class="fi" data-split>試行錯誤が</span></span>
+        <span class="fit l2" data-sq=".8"><span class="fi"><span class="c slot" style="--i:0"><span class="reel"><span>試</span><span>思</span><span>自</span><span>至</span><span>時</span></span></span><span class="c slot" style="--i:1"><span class="reel"><span>行</span><span>考</span><span>在</span><span>高</span><span>代</span></span></span><span class="c" style="--i:2">錯</span><span class="c" style="--i:3">誤</span><span class="c" style="--i:4">だ</span><span class="c" style="--i:5">っ</span><span class="c" style="--i:6">て</span><span class="c" style="--i:7">？</span></span></span>
+      </h2>
+
+      <p class="baka" id="baka" aria-label="あんたバカァ？">
+        <span class="fit" data-sq=".78"><span class="fi" data-split>あんた</span></span>
+        <span class="fit" data-sq=".78"><span class="fi" data-split>バカァ？</span></span>
+      </p>
+      <p class="err-foot"><span>EXIT CODE 1</span><span>TAP TO RETRY</span></p>
+    </div>
+  </section>
+
+  <!-- 03 LOG -->
+  <section id="log" class="log" data-theme="bone">
+    <header class="log-head">
+      <p class="cmd"><span class="pr">$</span> git log --reverse --author="Yuta Okada"</p>
+      <h2 class="log-name"><span class="fit" data-sq=".8"><span class="fi" data-split>岡田雄太</span></span></h2>
+      <p class="log-en"><span>YUTA OKADA</span><span>CTO</span></p>
+    </header>
+
+    <ol class="commits" id="commits">
+      <i class="rail" aria-hidden="true"><i class="rail-fill" id="railFill"></i></i>
+      <li class="commit">
+        <p class="meta"><span class="hash" data-h="1a0c3f2">1a0c3f2</span><span class="tag">INIT</span></p>
+        <h3 class="org"><span>大阪市立大学</span></h3>
+        <p class="body">大阪市立大学理学研究科修了。</p>
+      </li>
+      <li class="commit">
+        <p class="meta"><span class="hash" data-h="7e4b9d1">7e4b9d1</span><span class="tag">BUILD</span></p>
+        <h3 class="org"><span>野村総合研究所</span></h3>
+        <p class="body">野村総合研究所にて金融機関向け業務システム開発・プロジェクトマネジメントに従事。</p>
+      </li>
+      <li class="commit">
+        <p class="meta"><span class="hash" data-h="c85f0a7">c85f0a7</span><span class="tag">DEPLOY → HK</span></p>
+        <h3 class="org org-en"><span>8Securities</span></h3>
+        <p class="body">香港スタートアップ8Securitiesに出向、</p>
+      </li>
+      <li class="commit">
+        <p class="meta"><span class="hash" data-h="3d29e6b">3d29e6b</span><span class="tag">MERGE</span></p>
+        <h3 class="org org-en"><span>BOOSTRY</span></h3>
+        <p class="body">帰国後はBOOSTRYに参画。</p>
+      </li>
+      <li class="commit">
+        <p class="meta"><span class="hash" data-h="2023c70">2023c70</span><span class="tag">2023 / CTO</span></p>
+        <h3 class="org org-en"><span>WiseVine</span></h3>
+        <p class="body">2023年からはGovTech企業WiseVineにCTOとして参画。</p>
+      </li>
+      <li class="commit head">
+        <p class="meta"><span class="hash" data-h="2025a04">2025a04</span><span class="tag tag-head">HEAD</span><span class="tag">2025.04 → NOW</span></p>
+        <h3 class="org"><span>ワークワンダース</span></h3>
+        <p class="body">現在は、ワークワンダース株式会社 取締役CTOとして、組織・プロダクトの立ち上げ＆グロースを牽引。</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 04 LIMIT -->
+  <section id="limit" class="limit" data-theme="ink">
+    <div class="limit-stage" id="limitStage">
+      <p class="lim-copy" aria-label="できることに、限界はない。">
+        <span class="fit lim1" data-sq=".8" id="lim1"><span class="fi" data-split>できることに</span></span>
+        <span class="fit lim2" data-sq=".8" id="lim2"><span class="fi" data-split>限界はない。</span></span>
+      </p>
+      <p class="ai" aria-label="AIとならね。">
+        <span class="ai-label">&gt; RESPONSE</span>
+        <span class="fit" data-sq=".8"><span class="fi" id="aiLine" data-split>AIとならね。</span></span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 05 CONTACT -->
+  <section id="contact" class="contact" data-theme="ink">
+    <header class="ct-head">
+      <p class="cmd"><span class="pr">$</span> okady --contact</p>
+      <h2 class="ct-title"><span class="fit" data-sq=".9"><span class="fi">CONTACT</span></span></h2>
+    </header>
+    <form id="contactForm" class="ct-form" novalidate>
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="field">
+        <label for="f-name"><span>氏名<em>必須</em></span><small>NAME</small></label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="f-email"><span>連絡先（メールアドレス）<em>必須</em></span><small>EMAIL</small></label>
+        <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="f-org"><span>所属先</span><small>ORG</small></label>
+        <input id="f-org" name="org" type="text" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="f-msg"><span>要件<em>必須</em></span><small>MESSAGE</small></label>
+        <textarea id="f-msg" name="message" rows="5" required></textarea>
+      </div>
+      <button class="send" id="send" type="submit"><span>送信する</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg></button>
+      <div class="ct-status" id="ctStatus" role="status" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <!-- FOOT -->
+  <footer class="foot" data-theme="lime">
+    <img class="foot-logo" src="assets/logo.png" alt="okady" width="1302" height="352" loading="lazy">
+    <nav class="sns" aria-label="SNS">
+      <a href="https://x.com/dhythm_dev" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X<i aria-hidden="true">↗</i></span>
+      </a>
+      <a class="sns-note" href="https://note.com/dhythm" target="_blank" rel="noopener">
+        <img src="assets/note-n.png" alt="" width="287" height="285">
+        <span>note<i aria-hidden="true">↗</i></span>
+      </a>
+      <a href="https://www.facebook.com/yuta.okada.16" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        <span>Facebook<i aria-hidden="true">↗</i></span>
+      </a>
+    </nav>
+    <dl class="stats">
+      <div><dt>TRIALS</dt><dd id="fTry">0001</dd></div>
+      <div><dt>ERRORS</dt><dd id="fErr">000</dd></div>
+      <div><dt>STATUS</dt><dd class="live">RUNNING<i></i></dd></div>
+    </dl>
+    <button class="retry" id="retry" type="button"><span>RETRY</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg></button>
+    <p class="copy"><span>© 2026 OKADY.WORK</span><span>YUTA OKADA</span></p>
+  </footer>
+
+</main>
+</div>
+
+<p class="desk-note" aria-hidden="true">DESIGNED FOR MOBILE — OKADY.WORK</p>
+
+<script src="main.js"></script>
+</body>
+</html>
