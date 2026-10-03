@@ -104,7 +104,7 @@
     if (h) scramble(h);
     io.unobserve(el);
   }), { rootMargin: '0px 0px -18% 0px', threshold: .01 });
-  $$('.commit, .log-name').forEach(el => io.observe(el));
+  $$('.commit, .log-name, #footLogo').forEach(el => io.observe(el));
 
   function scramble(el) {
     const fin = el.dataset.h, hex = '0123456789abcdef';
